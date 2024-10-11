@@ -9,7 +9,7 @@ class PokemonController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     *///Made by: Riko Gunawan
     public function index()
     {
         $pokemon = Pokemon::all();

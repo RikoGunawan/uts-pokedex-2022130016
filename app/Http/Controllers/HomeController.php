@@ -11,6 +11,8 @@ class HomeController extends Controller
      *
      * @return void
      */
+
+    //Made by: Riko Gunawan
     public function __construct()
     {
         $this->middleware('auth');

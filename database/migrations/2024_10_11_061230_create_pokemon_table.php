@@ -7,7 +7,7 @@ use Symfony\Contracts\Service\Attribute\Required;
 
 return new class extends Migration
 {
-    /**
+    /**Made by: Riko Gunawan
      * Run the migrations.
      */
     public function up(): void
