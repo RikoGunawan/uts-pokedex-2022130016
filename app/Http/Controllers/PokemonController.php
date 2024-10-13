@@ -40,11 +40,11 @@ class PokemonController extends Controller
             'name' => 'required|string|max:255',
             'species' => 'required|string|max:100',
             'primary_type' => 'required|string|max:50',
-            'weight' => 'numeric',
-            'height' => 'numeric',
-            'hp' => 'integer',
-            'attack' => 'integer',
-            'defense' => 'integer',
+            'weight' => 'numeric|min:0|max:999999.99',
+            'height' => 'numeric|min:0|max:999999.99',
+            'hp' => 'integer|min:0|max:9999',
+            'attack' => 'integer|min:0|max:9999',
+            'defense' => 'integer|min:0|max:9999',
             'is_legendary' => 'required|boolean',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -84,6 +84,8 @@ class PokemonController extends Controller
      */
     public function update(Request $request, Pokemon $pokemon)
     {
+        // dd($request->all());
+
         $request->validate([
             'name' => 'required|string|max:255',
             'species' => 'required|string|max:100',

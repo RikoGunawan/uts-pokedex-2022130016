@@ -21,10 +21,10 @@
 
                         @foreach ($pokemons as $pokemon)
                             <tr>
-                                <td>{{ Str::padLeft($pokemon->id, 1, '#') }}</td>
-                                <td>
+                                <td>{{ Str::padLeft($pokemon->id, 5, '#000') }}</td>
+                                {{-- <td>
                                     <img src="{{ Storage::url($pokemon->photo) }}" class="img-thumbnail w-50">
-                                </td>
+                                </td> --}}
                                 <td>
                                     <a href="{{ route('pokemon.show', $pokemon) }}">
                                         {{ $pokemon->name }}
@@ -33,7 +33,6 @@
                                 <td>{{ $pokemon->species }}</td>
                                 <td>{{ $pokemon->primary_type }}</td>
                                 <td>{{ $pokemon->hp + $pokemon->attack + $pokemon->defense }}</td>
-                                <td>{{ $pokemon->quantity }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
                                         <a class = "btn btn-warning" href="{{ route('pokemon.edit', $pokemon) }}">

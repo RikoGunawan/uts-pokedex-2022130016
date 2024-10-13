@@ -37,28 +37,30 @@
                         <div class="col-8">
                             <label for="inputState" class="form-label">Primary Type</label>
                             <select class="form-select @error('primary_type') is-invalid @enderror"
-                            for="primary_type" id="primary_type" name="primary_type" value="{{ old('primary_type') }}">
-                                <option value="" disabled selected>Choose primary type</option>
-                                <option value="1">Grass</option>
-                                <option value="2">Fire</option>
-                                <option value="3">Water</option>
-                                <option value="4">Bug</option>
-                                <option value="5">Normal</option>
-                                <option value="6">Poison</option>
-                                <option value="7">Electric</option>
-                                <option value="8">Ground</option>
-                                <option value="9">Fairy</option>
-                                <option value="10">Fighting</option>
-                                <option value="11">Psychic</option>
-                                <option value="12">Rock</option>
-                                <option value="13">Ghost</option>
-                                <option value="14">Ice</option>
-                                <option value="15">Dragon</option>
-                                <option value="16">Dark</option>
-                                <option value="17">Steel</option>
-                                <option value="18">Flying</option>
+                            id="primary_type" name="primary_type">
+                            {{-- Note: Repopulate khusus @selected syntax blade untuk cek status selected --}}
+                            <option value="" disabled @selected(old('primary_type') == '')>Choose primary type</option>
+                            <option value="Grass" @selected(old('primary_type') == 'Grass')>Grass</option>
+                            <option value="Fire" @selected(old('primary_type') == 'Fire')>Fire</option>
+                            <option value="Water" @selected(old('primary_type') == 'Water')>Water</option>
+                            <option value="Bug" @selected(old('primary_type') == 'Bug')>Bug</option>
+                            <option value="Normal" @selected(old('primary_type') == 'Normal')>Normal</option>
+                            <option value="Poison" @selected(old('primary_type') == 'Poison')>Poison</option>
+                            <option value="Electric" @selected(old('primary_type') == 'Electric')>Electric</option>
+                            <option value="Ground" @selected(old('primary_type') == 'Ground')>Ground</option>
+                            <option value="Fairy" @selected(old('primary_type') == 'Fairy')>Fairy</option>
+                            <option value="Fighting" @selected(old('primary_type') == 'Fighting')>Fighting</option>
+                            <option value="Psychic" @selected(old('primary_type') == 'Psychic')>Psychic</option>
+                            <option value="Rock" @selected(old('primary_type') == 'Rock')>Rock</option>
+                            <option value="Ghost" @selected(old('primary_type') == 'Ghost')>Ghost</option>
+                            <option value="Ice" @selected(old('primary_type') == 'Ice')>Ice</option>
+                            <option value="Dragon" @selected(old('primary_type') == 'Dragon')>Dragon</option>
+                            <option value="Dark" @selected(old('primary_type') == 'Dark')>Dark</option>
+                            <option value="Steel" @selected(old('primary_type') == 'Steel')>Steel</option>
+                            <option value="Flying" @selected(old('primary_type') == 'Flying')>Flying</option>
                             </select>
                         </div>
+
                         <div class="col-4">
                             {{-- grid kosong --}}
                         </div>
@@ -80,7 +82,7 @@
                         <div class="col-1">
                             <label class="form-label" for="hp">HP</label>
                             <input class="form-control @error('hp') is-invalid @enderror" type="number"name="hp"
-                                id="hp" value="{{ old('wholesale_price') }}" placeholder="">
+                                id="hp" value="{{ old('hp') }}" placeholder="">
                         </div>
                         <div class="col-1">
                             <label class="form-label" for="attack">ATK</label>
@@ -98,10 +100,14 @@
                         <div class="col-2">
                             <label class="form-label" for="is_legendary">Rarity</label>
                             <div>
-                                <input class="form-check-input @error('is_legendary') is-invalid @enderror" type="checkbox" name="is_legendary" id="is_legendary">
+                                <input type="hidden" name="is_legendary" value="0">
+
+                                <input class="form-check-input @error('is_legendary') is-invalid @enderror" type="checkbox"
+                                name="is_legendary" id="is_legendary" value="1" {{ old('is_legendary') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="is_legendary">Legendary</label>
                             </div>
                         </div>
+
                         <div class="col-6">
                             <label class="form-label" for="photo">Photo</label>
                             <input class="form-control @error('photo') is-invalid @enderror" type="file"
