@@ -13,7 +13,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('pokemons.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('pokemon.store') }}" method="POST" enctype="multipart/form-data">
                 <div class='row'>
                     @csrf
                     <div class="row">
@@ -41,25 +41,31 @@
                         </div>
 
                         <div class="col-5">
-                            <label class="form-label" for="retail_price">Retail Price</label>
-                            <input class="form-control @error('retail_price') is-invalid @enderror" type="number" name = "retail_price" placeholder="" value="{{ old('retail_price') }}">
-                        </div>
-                        <div class="col-7">
-                            {{-- grid kosong --}}
+                            <label class="form-label" for="weight">Weight</label>
+                            <input class="form-control @error('weight') is-invalid @enderror" type="number" name = "weight" placeholder="" value="{{ old('weight') }}">
                         </div>
                         <div class="col-5">
-                            <label class="form-label" for="wholesale_price">Wholesale Price</label>
-                            <input class="form-control @error('wholesale_price') is-invalid @enderror" type="number"name="wholesale_price" id="wholesale_price" value="{{ old('wholesale_price') }}"
+                            <label class="form-label" for="height">Height</label>
+                            <input class="form-control @error('height') is-invalid @enderror" type="number" name = "height" placeholder="" value="{{ old('height') }}">
+                        </div>
+                        <div class="col-2">
+                            {{-- grid kosong --}}
+                        </div>
+
+                        <div class="col-4">
+                            <label class="form-label" for="hp">HP</label>
+                            <input class="form-control @error('hp') is-invalid @enderror" type="number"name="hp" id="hp" value="{{ old('wholesale_price') }}"
                                 placeholder="">
                         </div>
-                        <div class="col-2">
-                            <label class="form-label" for="min_wholesale_qty">Min Wholesale Qty</label>
-                            <input class="form-control @error('min_wholesale_qty') is-invalid @enderror" type="number" name="min_wholesale_qty" placeholder="" value="{{ old('min_wholesale_qty') }}">
+                        <div class="col-4">
+                            <label class="form-label" for="attack">ATK</label>
+                            <input class="form-control @error('attack') is-invalid @enderror" type="number" name="attack" placeholder="" value="{{ old('attack') }}">
                         </div>
-                        <div class="col-2">
-                            <label class="form-label" for="quantity">Quantity</label>
-                            <input class="form-control @error('quantity') is-invalid @enderror" type="number" name="quantity" value="{{ old('quantity') }}">
+                        <div class="col-4">
+                            <label class="form-label" for="defense">Defense</label>
+                            <input class="form-control @error('defense') is-invalid @enderror" type="number" name="defense" value="{{ old('defense') }}">
                         </div>
+
                         <div class="col-3">
                             {{-- grid kosong --}}
                         </div>

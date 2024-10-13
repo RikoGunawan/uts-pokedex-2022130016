@@ -10,11 +10,17 @@ class PokemonController extends Controller
     /**
      * Display a listing of the resource.
      *///Made by: Riko Gunawan
+    public function __construct()
+    {
+         $this->middleware('auth')->except('show');
+    }
+
     public function index()
     {
-        $pokemon = Pokemon::all();
-        $pokemon = Pokemon::paginate(9); //Untuk membagi penampilan data
-        return view('pokemons.index', compact('pokemons'));
+        // $pokemon = Pokemon::all();
+        $pokemons = Pokemon::paginate(20); //Untuk membagi penampilan data
+        return view('pokemon.index', compact('pokemons'));
+
     }
 
     /**
@@ -22,7 +28,7 @@ class PokemonController extends Controller
      */
     public function create()
     {
-        return view('pokemons.create');
+        return view('pokemon.create');
     }
 
     /**
@@ -54,7 +60,7 @@ class PokemonController extends Controller
             ]);
         }
 
-        return redirect()->route('pokemons.index');
+        return redirect()->route('pokemon.index');
     }
 
     /**
@@ -62,7 +68,7 @@ class PokemonController extends Controller
      */
     public function show(Pokemon $pokemon)
     {
-        return view('pokemons.show', compact('pokemon'));
+        return view('pokemon.show', compact('pokemon'));
     }
 
     /**
@@ -70,7 +76,7 @@ class PokemonController extends Controller
      */
     public function edit(Pokemon $pokemon)
     {
-        return view('pokemons.edit', compact('pokemon'));
+        return view('pokemon.edit', compact('pokemon'));
     }
 
     /**
@@ -103,7 +109,7 @@ class PokemonController extends Controller
             ]);
         }
 
-        return redirect()->route('pokemons.index');
+        return redirect()->route('pokemon.index');
     }
 
     /**
@@ -112,6 +118,6 @@ class PokemonController extends Controller
     public function destroy(Pokemon $pokemon)
     {
         $pokemon->delete();
-        return redirect()->route('pokemons.index');
+        return redirect()->route('pokemon.index');
     }
 }
