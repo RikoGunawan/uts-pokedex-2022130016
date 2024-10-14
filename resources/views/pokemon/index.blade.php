@@ -22,9 +22,6 @@
                         @foreach ($pokemons as $pokemon)
                             <tr>
                                 <td>{{ Str::padLeft($pokemon->id, 5, '#000') }}</td>
-                                {{-- <td>
-                                    <img src="{{ Storage::url($pokemon->photo) }}" class="img-thumbnail w-50">
-                                </td> --}}
                                 <td>
                                     <a href="{{ route('pokemon.show', $pokemon) }}">
                                         {{ $pokemon->name }}
