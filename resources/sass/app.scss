@@ -6,3 +6,22 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+/* Styling untuk card berbentuk bingkai foto */
+.photo-frame {
+    border: 5px solid #ddd; /* Membuat border tebal seperti bingkai */
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambah shadow untuk efek 3D */
+    transition: transform 0.2s; /* Tambah efek hover */
+}
+
+.photo-frame:hover {
+    transform: scale(1.05); /* Zoom sedikit saat di-hover */
+}
+
+.photo-frame-img {
+    border: 3px solid #ccc; /* Border untuk gambar dalam bingkai */
+    padding: 5px;
+    background-color: #f8f8f8;
+}

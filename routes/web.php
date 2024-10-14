@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PokemonController;
+use App\Http\Controllers\PokedexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +15,16 @@ use App\Http\Controllers\PokemonController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('pokemon', PokemonController::class);
+
+Route::resource('/', PokedexController::class);
+
+
