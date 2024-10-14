@@ -46,7 +46,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{ $pokemons->links() }}
+                {{ $pokemons->links('pagination::bootstrap-5') }}
             </main>
             {{-- <button class="btn btn-primary" href="{{ route('book.form') }}">Tambah Buku</button> --}}
         </div>

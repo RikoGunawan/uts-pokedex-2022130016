@@ -126,7 +126,8 @@
                     </div>
 
                     <div class="col-md-4">
-                        <img src="{{ Storage::url($pokemon->photo) }}" class="img-fluid" alt="Pokemon Image">
+                        <img src="{{ Storage::url($pokemon->photo) }}" class="img-fluid" alt="Pokemon Image"
+                        onerror="this.onerror=null;this.src='https://placehold.co/200';" />
                     </div>
 
                     <button type="submit" class="btn btn-primary mt-4">Update</button>
